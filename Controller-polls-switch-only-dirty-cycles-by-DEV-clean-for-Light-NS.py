@@ -30,7 +30,8 @@ def tuyaPlatform(apiRegion, apiKey, apiSecret, uri, token=None):
         payload = apiKey + str(now)
     else:
         payload = apiKey + token + str(now)
-    print("API Key + Token ", payload)
+    print("API Key ", apiKey)
+    print("Token ", payload)
 
     # Sign Payload
     signature = hmac.new(
