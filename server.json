@@ -1,0 +1,31 @@
+{
+  "name": "TuyaSwitchs",
+  "docs": "https://github.com/sjpbailey/udi-poly-treatlife-switch-python-master",
+  "type": "python3",
+  "executable": "tuya-switch-controller.py",
+  "install": "install.sh",
+  "install_cloud": "install_cloud.sh",
+  "description": "Node Server for TreatLife IP Switches and Dimmers",
+  "notice": "Use at Your own Risk Also Please enjoy",
+  "shortPoll": "1100",
+  "longPoll": "6600",
+  "testMode": false,
+  "profile_version": "2.2.6",
+  "credits": [
+    {
+      "title": "NodeServer for TreatLife IP Switches and Dimmers",
+      "author": "Steve Baiey (sjpbailey)",
+      "version": "2.2.6",
+      "date": "February 4, 2021",
+      "source": "https://github.com/sjpbailey/udi-poly-treatlife-switch-python-master",
+      "license": "https://github.com/sjpbailey/udi-poly-treatlife-switch-python-master/LICENSE"
+    }
+  ],
+  "store": {
+    "developer": "sjpbailey1961@gmail.com",
+    "price": 0.01,
+    "recurring": 0,
+    "recurring_interval": "month",
+    "recurring_period": 0
+  }
+}

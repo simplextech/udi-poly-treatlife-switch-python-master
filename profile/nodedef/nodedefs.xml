@@ -1,0 +1,61 @@
+<nodeDefs>
+    <!-- NODE DEF from 5.0 document http://wiki.universal-devices.com/index.php?title=V50_MAIN -->
+    <!-- controller, this must mach the id in your Controller class-->
+    <nodeDef id="controller" nls="ctl">
+        <editors />
+        <sts>
+		<st id="ST" editor="bool" />
+        <st id="GV1" editor="I_DEBUG" />
+		</sts>
+        <cmds>
+            <sends>
+              <!-- These are for our heartbeat -->
+              <cmd id="DON" />
+              <cmd id="DOF" />
+              
+            </sends>
+            <accepts>
+              <cmd id="SET_DM">
+                <p id="" editor="I_DEBUG" init="GV1" />
+              </cmd>
+              <cmd id="QUERY" />
+              <cmd id="DISCOVER" />
+              <cmd id="REMOVE_NOTICES_ALL" />
+              <cmd id="REMOVE_NOTICE_TEST" />
+              <cmd id="UPDATE_PROFILE" />
+              <!--<cmd id="WIZARD" />-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+	<!-- templatenodeid--> 
+    <nodeDef id="tuyaswitch1" nls="swtnode1">
+        <editors />
+        <sts>
+        <st id="ST" editor="bool" />-->
+        <st id="GV2" editor="bool" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+                <cmd id="SWTON" />
+                <cmd id="SWTOF" />
+                <cmd id="QUERY" />
+            </accepts>
+        </cmds>
+    </nodeDef>
+    <nodeDef id="tuyaswitch2" nls="swtnode2">
+        <editors />
+        <sts>
+        <st id="ST" editor="bool" />-->
+        <st id="GV2" editor="bool" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+                <cmd id="SWTON" />
+                <cmd id="SWTOF" />
+                <cmd id="QUERY" />
+            </accepts>
+        </cmds>
+    </nodeDef>
+</nodeDefs>

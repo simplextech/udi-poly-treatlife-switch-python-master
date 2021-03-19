@@ -1,0 +1,37 @@
+# controller
+ND-controller-NAME = Tuya Switch Controller
+ND-controller-ICON = Alarm
+CMD-ctl-QUERY"-NAME = Query
+CMD-ctl-DISCOVER-NAME = Re-Discover
+CMD-ctl-UPDATE_PROFILE-NAME = Update Profile
+CMD-ctl-REMOVE_NOTICES_ALL-NAME = Remove All Notices
+CMD-ctl-REMOVE_NOTICE_TEST-NAME = Remove Notice Test
+#CMD-ctl-WIZARD"-NAME = Query
+CMD-ctl-SET_DM-NAME = Set Logger Level
+ST-ctl-ST-NAME = NodeServer Online
+ST-ctl-GV1-NAME = Logger Level
+
+# mynodetype1
+ND-tuyaswitch1-NAME = Tuya Switch Node 1
+ND-tuyaswitch1-ICON = Electricity
+ST-swtnode1-ST-NAME = Node Status
+ST-swtnode1-GV2-NAME = Switch Status
+CMD-swtnode1-SWTON-NAME = Switch On
+CMD-swtnode1-SWTOF-NAME = Switch Off
+
+# mynodetype2
+ND-tuyaswitch2-NAME = Tuya Switch Node 2
+ND-tuyaswitch2-ICON = Output
+ST-swtnode2-ST-NAME = Node Status
+ST-swtnode2-GV2-NAME = Switch Status
+CMD-swtnode2-SWTON-NAME = Switch On
+CMD-swtnode2-SWTOF-NAME = Switch Off
+
+
+# Debug/Logger Modes
+CDM-9 = Debug + Modules
+CDM-10 = Debug
+CDM-20 = Info
+CDM-30 = Warning
+CDM-40 = Error
+CDM-50 = Critical
