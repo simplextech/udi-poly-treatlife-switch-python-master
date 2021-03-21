@@ -102,11 +102,13 @@ def wizard(color=True):
     uri = 'devices/%s' % DEVICEID
     response_dict = tuyaPlatform(REGION, KEY, SECRET, uri, token)
     uid = response_dict['result']['uid']
+    print(uid)
 
     # Use UID to get list of all Devices for User
     uri = 'users/%s/devices' % uid
     json_data = tuyaPlatform(REGION, KEY, SECRET, uri, token)
- 
+    #print("Full json above", json_data)
+
     # Filter to only Name, ID and Key
     tuyadevices = []
     for i in json_data['result']:
@@ -118,10 +120,10 @@ def wizard(color=True):
         tuyadevices.append(item)
 
     # Display device list
-    #print("\n\n" + "Device Listing\n")
+    print("\n\n" + "Device Listing\n")
     output = json.dumps(tuyadevices, indent=4)  # sort_keys=True)
-    ##print("\n\n" + "Hello Here's are the Devices with INTERNET ACTIVE IP ADDRESSES \n\n " + output)  
-
+    print("\n\n" + "Hello Here's are the Devices with INTERNET ACTIVE IP ADDRESSES \n\n " + output)  
+    
 ######################### Device Switch Poller ###################################
 #                                                                                #
 # Using devId to poll Switches with lights or should i use key length??????####
@@ -199,6 +201,7 @@ def wizard(color=True):
         print("")
         ##print("Hello Here's the JSON \n " + output) #Prints output.json 
         print("")
+        #print("Full json below", json_data)
 ####################################################################################### NODE SWITCH CLASS START HERE  ##########################################################################################################
 #class SwitchNodes(polyinterface.Node):
     #def __init__(self, controller, primary, address, name): #, ip, id1, key1
