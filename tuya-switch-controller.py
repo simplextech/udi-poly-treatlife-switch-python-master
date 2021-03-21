@@ -240,7 +240,7 @@ class Controller(polyinterface.Controller):
 
     def discover(self,*args, **kwargs):    
         if "id" is not None:
-            self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', 'SWITCHID', ]))
+            self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', 'SWITCHID'))
         if "id" is not None: 
             self.addNode(SwitchNodes2(self, self.address, 'tuyaswitch2', 'TreatLife-2'))
         
