@@ -235,8 +235,7 @@ class Controller(polyinterface.Controller):
         #LOGGER.info(SWITCHKEY)
         LOGGER.info("TEST1 ID" + 'item'["id"]) # Device ID
         LOGGER.info("TEST1 KEY" + 'item'["key"]) # Device Key
-        if 'id' is not None:
-            self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', SWITCHID))       
+        self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', SWITCHID))       
 
 
     def discover(self,*args, **kwargs):    
