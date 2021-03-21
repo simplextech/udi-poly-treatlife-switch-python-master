@@ -226,7 +226,7 @@ class Controller(polyinterface.Controller):
         # Save polling data snapsot
         current = {'timestamp' : time.time(), 'devices' : polling}
         output = json.dumps(current, indent=4) 
-       
+        SWITCHID = i['id']
         SWITCHIP = item["ip"] 
         SWITCHKEY = item["key"] 
         LOGGER.info("Currently Passed Name:", 'item'["name"])
@@ -240,7 +240,7 @@ class Controller(polyinterface.Controller):
 
     def discover(self,*args, **kwargs):    
         if "id" is not None:
-            self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1'))
+            self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', 'SWITCHID', ]))
         if "id" is not None: 
             self.addNode(SwitchNodes2(self, self.address, 'tuyaswitch2', 'TreatLife-2'))
         
@@ -405,9 +405,10 @@ class Controller(polyinterface.Controller):
     
 
 class SwitchNodes1(polyinterface.Node):
-    def __init__(self, controller, primary, address, name): #, ip, id1, key1 key, ip, id
+    def __init__(self, controller, primary, address, name, SWITCHID): #, ip, id1, key1 key, ip, id
         super(SwitchNodes1, self).__init__(controller, primary, address, name)
-        #self.SWITCHIP = 'IP'
+        self.SWITCHID = SWITCHID
+        LOGGER.info(SWITCHID)
         #LOGGER.info("IP Address?" + 'IP')
     
     
