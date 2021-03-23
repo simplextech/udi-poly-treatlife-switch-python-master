@@ -60,6 +60,7 @@ class Controller(polyinterface.Controller):
         self.check_params()
         for node in self.nodes:
             self.nodes[node].reportDrivers()
+    
 
     def tuyaPlatform(self, apiRegion, apiKey, apiSecret, uri, token=None):
         request = "https://openapi.tuya%s.com/v1.0/%s" % (apiRegion,uri)
@@ -96,9 +97,12 @@ class Controller(polyinterface.Controller):
                 LOGGER.debug("Failed to get valid JSON response")
 
         #return(response_dict)
-
+        class tuyaPlatform:
+            def __init__(self):
+                self.response_dict = response_dict()
+        pass
     def discover(self,*args, **kwargs):
-        
+        response_dict = response_dict
     #def wizard(self, command, color=True):
         config = {}
         config['apiKey'] = 'default_apiKey'  #'txejpdfda9iwmn5cg2es'
