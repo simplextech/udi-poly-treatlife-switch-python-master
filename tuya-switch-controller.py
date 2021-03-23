@@ -154,7 +154,8 @@ class Controller(polyinterface.Controller):
         ##with open(DEVICEFILE, "w") as outfile:
         ##    outfile.write(output)
         ##LOGGER.info(dim + "    %d registered devices saved" % len(tuyadevices))
-        
+    
+    def discover(self,*args, **kwargs):    
         if('Y'[0:1].lower() != 'n'):
             # Scan network for devices and provide polling data
             ##LOGGER.info(normal + "\nScanning local network for Tuya devices...")
@@ -193,7 +194,9 @@ class Controller(polyinterface.Controller):
                         item['devId'] = data
                         #state = alertdim + "Off" 
                         try:
-                            if '1' in data['dps'] or '1' in data['devId']:
+                            if '1' in data['dps'] or '20' in data['devId'] or '1' in data['dps']:
+                                self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1'))
+                                self.addNode(SwitchNodes2(self, self.address, 'tuyaswitch2', 'TreatLife-2'))
                                 #state = "On" 
                                 #LOGGER.info("    %s[%s] - %s%s - %s - DPS: %r" %
                                 #    (name, ip, state, data['dps'])
@@ -235,14 +238,14 @@ class Controller(polyinterface.Controller):
         #LOGGER.info(SWITCHKEY)
         LOGGER.info("TEST1 ID" + 'item'["id"]) # Device ID
         LOGGER.info("TEST1 KEY" + 'item'["key"]) # Device Key
-        self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', SWITCHID))       
+               
 
 
-    def discover(self,*args, **kwargs):    
+    #def discover(self,*args, **kwargs):    
         #if "id" is not None:
         #    self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', 'SWITCHID'))
-        if "id" is not None: 
-            self.addNode(SwitchNodes2(self, self.address, 'tuyaswitch2', 'TreatLife-2'))
+        #if "id" is not None: 
+            #self.addNode(SwitchNodes2(self, self.address, 'tuyaswitch2', 'TreatLife-2'))
         
     def delete(self):
         LOGGER.info('Removing Tuya Switch.')
@@ -405,10 +408,10 @@ class Controller(polyinterface.Controller):
     
 
 class SwitchNodes1(polyinterface.Node):
-    def __init__(self, controller, primary, address, name, SWITCHID): #, ip, id1, key1 key, ip, id
+    def __init__(self, controller, primary, address, name): #, ip, id1, key1 key, ip, id
         super(SwitchNodes1, self).__init__(controller, primary, address, name)
-        self.SWITCHID = SWITCHID
-        LOGGER.info(SWITCHID)
+        #self.SWITCHID = SWITCHID
+        #LOGGER.info(SWITCHID)
         #LOGGER.info("IP Address?" + 'IP')
     
     
