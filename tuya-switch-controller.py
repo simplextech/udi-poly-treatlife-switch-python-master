@@ -98,7 +98,7 @@ class Controller(polyinterface.Controller):
         #return(response_dict)
 
     def discover(self,*args, **kwargs):
-
+        response_dict = response_dict
     #def wizard(self, command, color=True):
         config = {}
         config['apiKey'] = 'default_apiKey'  #'txejpdfda9iwmn5cg2es'
