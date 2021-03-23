@@ -98,7 +98,7 @@ class Controller(polyinterface.Controller):
 
         #return(response_dict)
         
-    def discover(self,*args, **kwargs):
+    
         
     #def wizard(self, command, color=True):
         config = {}
@@ -243,7 +243,8 @@ class Controller(polyinterface.Controller):
                
 
 
-    #def discover(self,*args, **kwargs):    
+    def discover(self,*args, **kwargs):    
+        pass
         #if "id" is not None:
         #    self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', 'SWITCHID'))
         #if "id" is not None: 
