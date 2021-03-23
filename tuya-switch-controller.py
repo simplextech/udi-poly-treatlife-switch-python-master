@@ -98,7 +98,7 @@ class Controller(polyinterface.Controller):
         #return(response_dict)
 
     def discover(self,*args, **kwargs):
-        response_dict = response_dict
+        
     #def wizard(self, command, color=True):
         config = {}
         config['apiKey'] = 'default_apiKey'  #'txejpdfda9iwmn5cg2es'
@@ -134,7 +134,8 @@ class Controller(polyinterface.Controller):
         # Use UID to get list of all Devices for User
         uri = 'users/%s/devices' % uid
         json_data = tuyaPlatform(REGION, KEY, SECRET, uri, token)
- 
+        response_dict = response_dict
+
         # Filter to only Name, ID and Key
         tuyadevices = []
         for i in json_data['result']:
