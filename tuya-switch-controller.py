@@ -97,10 +97,7 @@ class Controller(polyinterface.Controller):
                 LOGGER.debug("Failed to get valid JSON response")
 
         #return(response_dict)
-        class tuyaPlatform:
-            def __init__(self):
-                self.response_dict = response_dict()
-        pass
+        
     def discover(self,*args, **kwargs):
         
     #def wizard(self, command, color=True):
