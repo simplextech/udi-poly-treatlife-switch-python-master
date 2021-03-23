@@ -97,9 +97,9 @@ class Controller(polyinterface.Controller):
 
         #return(response_dict)
 
-    
+    def discover(self,*args, **kwargs):
 
-    def wizard(self, command, color=True):
+    #def wizard(self, command, color=True):
         config = {}
         config['apiKey'] = 'default_apiKey'  #'txejpdfda9iwmn5cg2es'
         config['apiSecret'] = 'default_apiSecret'   #'46d6072ffd724e0ba5ebeb5cc6b9dce9'
@@ -155,7 +155,7 @@ class Controller(polyinterface.Controller):
         ##    outfile.write(output)
         ##LOGGER.info(dim + "    %d registered devices saved" % len(tuyadevices))
     
-    def discover(self,*args, **kwargs):    
+        
         if('Y'[0:1].lower() != 'n'):
             # Scan network for devices and provide polling data
             ##LOGGER.info(normal + "\nScanning local network for Tuya devices...")
