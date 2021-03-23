@@ -197,8 +197,7 @@ class Controller(polyinterface.Controller):
                         #state = alertdim + "Off" 
                         try:
                             if '1' in data['dps'] or '20' in data['devId'] or '1' in data['dps']:
-                                self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1'))
-                                self.addNode(SwitchNodes2(self, self.address, 'tuyaswitch2', 'TreatLife-2'))
+                                
                                 #state = "On" 
                                 #LOGGER.info("    %s[%s] - %s%s - %s - DPS: %r" %
                                 #    (name, ip, state, data['dps'])
@@ -227,7 +226,7 @@ class Controller(polyinterface.Controller):
                     #      (subbold, name, dim, ip, alertdim))
             polling.append(item)
         # for loop
-
+    
         # Save polling data snapsot
         current = {'timestamp' : time.time(), 'devices' : polling}
         output = json.dumps(current, indent=4) 
@@ -244,11 +243,11 @@ class Controller(polyinterface.Controller):
 
 
     def discover(self,*args, **kwargs):    
-        pass
-        #if "id" is not None:
-        #    self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', 'SWITCHID'))
-        #if "id" is not None: 
-            #self.addNode(SwitchNodes2(self, self.address, 'tuyaswitch2', 'TreatLife-2'))
+        
+        if "id" is not None:
+            self.addNode(SwitchNodes1(self, self.address, 'tuyaswitch1', 'TreatLife-1', 'SWITCHID'))
+        if "id" is not None: 
+            self.addNode(SwitchNodes2(self, self.address, 'tuyaswitch2', 'TreatLife-2'))
         
     def delete(self):
         LOGGER.info('Removing Tuya Switch.')
