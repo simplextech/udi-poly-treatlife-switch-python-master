@@ -203,6 +203,15 @@ def wizard(color=True):
         print("")
         #print("Full json below", json_data)        
         
+        print(json.dumps({'devices' : polling, 'devces' : item['name']}))
+        #print(json.dumps({'name' : polling}))
+        #print(json.dumps({'id' : polling}))
+        #print(json.dumps({'ip' : polling}))
+        #print(json.dumps({'key' : polling}))
+
+
+
+
         for i in json_data['result']:
             item = {}
         item['name'] = i['name'].strip()
