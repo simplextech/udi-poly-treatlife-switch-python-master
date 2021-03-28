@@ -121,12 +121,12 @@ def wizard(color=True):
         item['ip'] = i['ip']           ####Added IP
         tuyadevices.append(item)
         #print()
-        print("%-35.35s %-24s %-16s %-17s"  % (
-            i['name'], 
-            i['id'],
-            i['ip'],
-            i['local_key']
-            ))
+        #print("%-35.35s %-24s %-16s %-17s"  % (
+        #    i['name'], 
+        #    i['id'],
+        #    i['ip'],
+        #    i['local_key']
+        #    ))
 
     # Display device list
     print("\n\n" + "Device Listing\n")
@@ -135,7 +135,7 @@ def wizard(color=True):
     if('Y'[0:1].lower() != 'n'):
         # Scan network for devices and provide polling data
         ###print(normal + "\nScanning local network for Tuya devices...")
-        devices = tinytuya.deviceScan(False, 1) #### changed 20 to 1
+        devices = tinytuya.deviceScan(False, 20) #### changed 20 to 1
         #print("    %s%s local devices discovered%s" %
         #      ( len(devices)))
         print("")
@@ -145,9 +145,9 @@ def wizard(color=True):
                 if (gwid == d[ip]['gwId']):
                     return (ip, d[ip]['version'])
             return (0, 0)
-
+################################### For Loop Switches ##########################################################################################
         polling = []
-        print("Polling TreatLife Devices...\n")  
+        print("Polling TreatLife Switch Devices...\n")  
         for i in tuyadevices:
             item = {}
             name = i['name']
@@ -158,8 +158,6 @@ def wizard(color=True):
             item['id'] = i['id']
             item['key'] = i['key']
             if (ip == 0):
-                #print("    %s[%s] - %s%s - %sError: No IP found%s" %
-                #      (name, ip, alert, normal))
                 pass
             else:
                 try:
@@ -175,7 +173,7 @@ def wizard(color=True):
                                 #state = "On"                                                           # if '20' in data['dps'] or '20' in data['devId'] or '20' in data['dps']: = just lights
                                 #print("    %s[%s] - %s%s - %s - DPS: %r" %                             # if '1' in data['dps'] or '20' in data['devId'] or '1' in data['dps']: = just switches
                                 #    (name, ip, state, data['dps']))
-                                print("\nEACH TREATLIFE SWITCH TO NODE WITH ADDNODE FROM HERE!!!") ########################## addNode HERE!! ######################################################################
+                                print("\nEACH TREATLIFE SWITCH TO NODE WITH ADDNODE FROM HERE!!!") ########################## addNode Switches HERE!! ######################################################################
                                 print("%-35.35s %-24s %-16s %-17s %-5s" % (
                                     item["name"],
                                     item["id"],
@@ -192,6 +190,52 @@ def wizard(color=True):
                     pass
                     
             polling.append(item)
+################################### For Loop Lights ##########################################################################################
+        polling = []
+        polling = []
+        print("\nPolling TreatLife Light Devices...\n")  
+        for i in tuyadevices:
+            item = {}
+            name = i['name']
+            (ip, ver) = getIP(devices, i['id'])  ## 'id'
+            item['name'] = name
+            item['ip'] = ip
+            item['ver'] = ver
+            item['id'] = i['id']
+            item['key'] = i['key']
+            if (ip == 0):
+                pass
+            else:
+                try:
+                    d = tinytuya.OutletDevice(i['id'], ip, i['key'])
+                    if ver == "3.3":
+                        d.set_version(3.3)
+                    data = d.status()
+                    if 'dps' in data:     
+                        item['devId']= data    
+                        #state = alertdim + "Off" + dim
+                        try:
+                            if '20' in data['dps'] or '20' in data['devId'] or '20' in data['dps']:       # if '20' in data['dps'] or '1' in data['devId'] or '20' in data['dps']: = all devices
+                                #state = "On"                                                           # if '20' in data['dps'] or '20' in data['devId'] or '20' in data['dps']: = just lights
+                                #print("    %s[%s] - %s%s - %s - DPS: %r" %                             # if '1' in data['dps'] or '20' in data['devId'] or '1' in data['dps']: = just switches
+                                #    (name, ip, state, data['dps']))
+                                print("\nEACH TREATLIFE LIGHT TO NODE WITH ADDNODE FROM HERE!!!") ########################## addNode Lights HERE!! ######################################################################
+                                print("%-35.35s %-24s %-16s %-17s %-5s" % (
+                                    item["name"],
+                                    item["id"],
+                                    item["ip"],
+                                    item["key"],
+                                    item["ver"]))
+                            else:
+                             pass
+                        except:
+                            pass
+                    else:
+                        pass
+                except:
+                    pass
+                    
+            polling.append(item)    
         # for loop
 
 ###################################################### JSON STATUS ###################################################
@@ -202,22 +246,34 @@ def wizard(color=True):
         print("Hello Here's the JSON \n " + output) #Prints output.json 
         print("")
         #print("Full json below", json_data)        
-        
         print(json.dumps({'devices' : polling, 'devces' : item['name']}))
-        #print(json.dumps({'name' : polling}))
-        #print(json.dumps({'id' : polling}))
+        json.dumps(output, indent=4, sort_keys=True)
+        
+        print(json.dumps({'name' : polling}))
+       
+        #print(json.dumps([[{'id' : polling}]]))
         #print(json.dumps({'ip' : polling}))
         #print(json.dumps({'key' : polling}))
-
-
-
-
-        for i in json_data['result']:
-            item = {}
-        item['name'] = i['name'].strip()
         
-        print(i['name'])
-
+        
+        
+        print("%-35.35s %-24s %-16s %-17s"  % (
+            item["name"], 
+            item["id"],
+            item['ip'],
+            item["key"]
+            ))
+        #print('\nCurrent Status of', 'devices', item["name"])  # print('\nCurrent Status of', 'devices', item["name"], 'Light: %r' % data)
+       
+        #print("\n", current)
+        #print("\nHello ", item["name"], name['Under Cabinets']) 
+        
+        
+        
+    
+    
+    
+    
     print("\nDone.\n")
     return
 
