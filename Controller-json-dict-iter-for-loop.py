@@ -131,7 +131,7 @@ def wizard(color=True):
     # Display device list
     print("\n\n" + "Device Listing\n")
     output = json.dumps(tuyadevices, indent=4)  # sort_keys=True)
-    ##print("\n\n" + "Hello Here's are the Devices with INTERNET ACTIVE IP ADDRESSES \n\n " + output)  
+    print("\n\n" + "Hello Here's are the Devices with INTERNET ACTIVE IP ADDRESSES \n\n " + output)  
     if('Y'[0:1].lower() != 'n'):
         # Scan network for devices and provide polling data
         ###print(normal + "\nScanning local network for Tuya devices...")
