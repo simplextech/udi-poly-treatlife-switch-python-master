@@ -21,7 +21,7 @@ import os
 import random
 
 DEVICEID = "017743508caab5f0973e"
-DEVICEIP = "192.168.1.139"
+DEVICEIP = "192.168.1.146"
 DEVICEKEY = "e779c96c964f71b2"
 DEVICEVERS = "us"
 
@@ -69,7 +69,7 @@ if data is not None:
       d._send_receive(payload1)
       time.sleep(5)
       d._send_receive(payload2)
-      
+print(payload1, type)      
 # Get the status of the device
 #response = requests.request("GET", url, headers=headers, data=payload)
 
